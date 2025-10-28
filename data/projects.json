@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "documentor",
+    "title": "DocuMentor",
+    "summary": "Secure RAG chatbot with LangChain and ChromaDB",
+    "description": "Full-stack AI application: secure, scalable chatbot with a FastAPI backend and React frontend. Implements RAG with ChromaDB, JWT/OTP security and dual-mode conversational flows.",
+    "tech": ["Python","FastAPI","LangChain","ChromaDB","React","Tailwind CSS"],
+    "year": 2025
+  },
+  {
+    "slug": "slidetalk-ai",
+    "title": "SlideTalk AI",
+    "summary": "Automated presentation-to-video converter",
+    "description": "Converts PowerPoint files into narrated MP4 videos using Gemini for scriptwriting and gTTS + MoviePy for audio/video rendering.",
+    "tech": ["Python","FastAPI","Google Gemini","gTTS","MoviePy","React"],
+    "year": 2025
+  },
+  {
+    "slug": "pdf-to-html",
+    "title": "PDF-to-HTML Intelligent Converter",
+    "summary": "Two-stage AI pipeline converting PDFs into responsive HTML",
+    "description": "Hybrid parsing with PyMuPDF and pdfplumber, followed by LLM-driven markup generation supporting multiple LLM backends.",
+    "tech": ["Python","PyMuPDF","pdfplumber","LangChain","JavaScript","CSS"],
+    "year": 2025
+  }
+]
