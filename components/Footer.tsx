@@ -7,10 +7,10 @@ export default function Footer(){
             © {new Date().getFullYear()} Goutam Aswani — Built with Next.js & Tailwind CSS
           </div>
           <div className="flex gap-4 text-sm">
-            <a href="https://github.com/goutamaswani" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition">
+            <a href="https://github.com/Goutam-aswani" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition">
               GitHub
             </a>
-            <a href="https://linkedin.com/in/goutamaswani" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition">
+            <a href="https://www.linkedin.com/in/goutam-aswani-bei143/" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition">
               LinkedIn
             </a>
             <a href="mailto:goutamaswani43@gmail.com" className="text-muted hover:text-accent transition">

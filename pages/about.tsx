@@ -1,14 +1,30 @@
 import Head from 'next/head'
-import Nav from '../components/Nav'
+import EnhancedNav from '../components/EnhancedNav'
 import Footer from '../components/Footer'
+import EnhancedSkills from '../components/EnhancedSkills'
+import { Card, CardContent } from '../components/ui/card'
+import { Badge } from '../components/ui/badge'
+import { Button } from '../components/ui/button'
+import { motion } from 'framer-motion'
+import { Download, GraduationCap, Award, Trophy, Briefcase } from 'lucide-react'
 
-const skills = {
-  languages: ['Python', 'JavaScript', 'TypeScript', 'C', 'C++', 'SQL'],
-  aiMl: ['LangChain', 'RAG', 'LLMs', 'TensorFlow', 'Keras', 'OpenCV', 'Transformers', 'NLP'],
-  frameworks: ['FastAPI', 'Django', 'Flask', 'React', 'Next.js', 'Tailwind CSS'],
-  tools: ['Docker', 'Git', 'AWS EC2', 'n8n', 'Celery', 'Redis', 'ChromaDB', 'FAISS'],
-  databases: ['PostgreSQL', 'SQLite', 'ChromaDB', 'Pinecone']
-};
+const certifications = [
+  "The Joy of Computing using Python - NPTEL",
+  "Database Management System - NPTEL",
+  "Programming in Modern C++ - NPTEL",
+  "Cloud Computing - NPTEL", 
+  "Ethical Hacking - Infosys Springboard",
+  "Introduction to AI - LetsUpgrade",
+  "Generative AI with Large Language Models - Coursera (Deeplearning.AI)",
+  "LangChain Mastery - Udemy",
+];
+
+const achievements = [
+  "92.8% in 12th Standard (MP Board)",
+  "Developed 10+ production-ready AI applications",
+  "Built RAG systems serving 1000+ queries",
+  "Active contributor to open-source AI projects"
+];
 
 export default function About(){
   return (
@@ -18,111 +34,193 @@ export default function About(){
         <meta name="description" content="AI Engineer with expertise in GenAI, LangChain, RAG pipelines, and full-stack development. Building intelligent systems and automation tools." />
       </Head>
       <div>
-        <Nav />
-        <main className="container py-12 max-w-4xl">
-          <h1 className="text-3xl font-bold">About Me</h1>
-          
-          <section className="mt-6 text-muted leading-relaxed">
-            <p>
-              I'm an AI Engineer passionate about building intelligent systems with Large Language Models, 
-              Retrieval-Augmented Generation pipelines, and full-stack AI applications. Currently pursuing 
-              B.Tech in Computer Science & Engineering (AI & ML) at Acropolis Institute of Technology & Research, Indore.
+        <EnhancedNav />
+        <main className="container py-20 max-w-5xl">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              About{" "}
+              <span className="bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">
+                Me
+              </span>
+            </h1>
+            <p className="text-xl text-muted max-w-3xl mx-auto">
+              AI Engineer passionate about building intelligent systems with LLMs, RAG pipelines, 
+              and full-stack development
             </p>
-            <p className="mt-4">
-              My expertise spans GenAI tools (LangChain, LangChain-Google-GenAI), backend frameworks (FastAPI, Django, Flask), 
-              and modern frontend development (React, Next.js). I specialize in building RAG systems, automation workflows, 
-              and deploying scalable solutions with Docker and cloud platforms.
-            </p>
-            <p className="mt-4">
-              I've developed production-ready applications including secure chatbots with document-based Q&A, 
-              job automation pipelines, AI-powered presentation converters, and intelligent document processing systems. 
-              I'm deeply curious about AI algorithms, emerging GenAI tools, and leveraging automation for scalable solutions.
-            </p>
-          </section>
+          </motion.div>
 
-          <section className="mt-10">
-            <h2 className="text-2xl font-semibold">Technical Skills</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div>
-                <h3 className="text-sm font-semibold text-accent mb-2">Languages</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.languages.map(s => (
-                    <span key={s} className="text-xs px-2 py-1 bg-surface rounded">{s}</span>
-                  ))}
+          {/* Bio Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
+            <Card>
+              <CardContent className="p-8">
+                <div className="space-y-4 text-muted leading-relaxed">
+                  <p>
+                    I'm an AI Engineer passionate about building intelligent systems with Large Language Models, 
+                    Retrieval-Augmented Generation pipelines, and full-stack AI applications. Currently pursuing 
+                    B.Tech in Computer Science & Engineering (AI & ML) at Acropolis Institute of Technology & Research, Indore.
+                  </p>
+                  <p>
+                    My expertise spans GenAI tools (LangChain, LangChain-Google-GenAI), backend frameworks (FastAPI, Django, Flask), 
+                    and modern frontend development (React, Next.js). I specialize in building RAG systems, automation workflows, 
+                    and deploying scalable solutions with Docker and cloud platforms.
+                  </p>
+                  <p>
+                    I've developed production-ready applications including secure chatbots with document-based Q&A, 
+                    job automation pipelines, AI-powered presentation converters, and intelligent document processing systems. 
+                    I'm deeply curious about AI algorithms, emerging GenAI tools, and leveraging automation for scalable solutions.
+                  </p>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-accent mb-2">AI & ML</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.aiMl.map(s => (
-                    <span key={s} className="text-xs px-2 py-1 bg-surface rounded">{s}</span>
-                  ))}
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          {/* Skills Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Technical{" "}
+              <span className="bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">
+                Skills
+              </span>
+            </h2>
+            <EnhancedSkills />
+          </motion.section>
+
+          {/* Education Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+              <GraduationCap className="w-8 h-8 text-accent" />
+              Education
+            </h2>
+            <Card>
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold mb-2">
+                  B.Tech in Computer Science & Engineering (AI & ML)
+                </h3>
+                <p className="text-muted mb-2">
+                  Acropolis Institute of Technology & Research, Indore
+                </p>
+                <div className="flex items-center gap-2 text-sm text-muted">
+                  <Badge variant="secondary">2022 - 2026</Badge>
+                  <Badge variant="outline">CGPA: 8.39</Badge>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-accent mb-2">Frameworks</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.frameworks.map(s => (
-                    <span key={s} className="text-xs px-2 py-1 bg-surface rounded">{s}</span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-accent mb-2">Tools & DevOps</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tools.map(s => (
-                    <span key={s} className="text-xs px-2 py-1 bg-surface rounded">{s}</span>
-                  ))}
-                </div>
-              </div>
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          {/* Certifications Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+              <Award className="w-8 h-8 text-accent" />
+              Certifications
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-4 flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      <p className="text-sm">{cert}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
-          </section>
+          </motion.section>
 
-          <section className="mt-10">
-            <h2 className="text-2xl font-semibold">Education</h2>
-            <div className="mt-4 text-muted">
-              <div className="border-l-2 border-accent pl-4 py-1">
-                <h3 className="font-semibold text-white">B.Tech Computer Science & Engineering (AI & ML)</h3>
-                <p className="text-sm">Acropolis Institute of Technology & Research, Indore, M.P</p>
-                <p className="text-sm">2022 - 2026</p>
-              </div>
+          {/* Achievements Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+              <Trophy className="w-8 h-8 text-accent" />
+              Achievements
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-6 flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <Trophy className="w-5 h-5 text-accent" />
+                      </div>
+                      <p className="text-sm font-medium">{achievement}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
-          </section>
+          </motion.section>
 
-          <section className="mt-10">
-            <h2 className="text-2xl font-semibold">Achievements</h2>
-            <ul className="mt-4 space-y-3 text-muted">
-              <li className="flex items-start">
-                <span className="text-accent mr-2">🏆</span>
-                <span><strong>AI Fusion Hackathon - Top 10:</strong> Achieved Top 10 placement with advanced ML/DL model on GTSRB dataset</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent mr-2">♟️</span>
-                <span><strong>CHESS Tournament Victory:</strong> Led team to first place in inter-college chess tournament</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent mr-2">💻</span>
-                <span><strong>Active Hackathon Participant:</strong> Participated in 2-3 ML-focused hackathons with real-world AI challenges</span>
-              </li>
-            </ul>
-          </section>
-
-          <section className="mt-10">
-            <h2 className="text-2xl font-semibold">Resume</h2>
-            <p className="mt-3 text-muted">Download a copy of my full resume with detailed project descriptions and certifications:</p>
-            <a className="inline-block mt-4 bg-accent text-black px-6 py-3 rounded font-medium hover:opacity-90 transition" href="/resume.pdf" download>
-              Download Resume (PDF)
-            </a>
-          </section>
-
-          <section className="mt-10">
-            <h2 className="text-2xl font-semibold">Contact</h2>
-            <div className="mt-4 text-muted space-y-2">
-              <p>📧 Email: <a href="mailto:goutamaswani43@gmail.com" className="text-accent">goutamaswani43@gmail.com</a></p>
-              <p>📞 Phone: +91-7649010424</p>
-              <p>🔗 GitHub: <a href="https://github.com/goutamaswani" target="_blank" rel="noopener noreferrer" className="text-accent">github.com/goutamaswani</a></p>
-            </div>
-          </section>
+          {/* Resume Download */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <Card>
+              <CardContent className="p-12">
+                <Briefcase className="w-12 h-12 text-accent mx-auto mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Want to know more?</h3>
+                <p className="text-muted mb-6">
+                  Download my resume for a detailed overview of my experience and skills
+                </p>
+                <Button size="lg" asChild>
+                  <a href="/resume.pdf" download>
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Resume
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.section>
         </main>
         <Footer />
       </div>
